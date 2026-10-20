@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import {faker} from '@faker-js/faker';
-import { MainPage } from '../src/pages/main.page';
-import { RegisterPage } from '../src/pages/register.page';
-import { YourFeedPage } from '../src/pages/yourfeed.page';
+import { MainPage } from '../../src/pages/main.page';
+import { RegisterPage } from '../../src/pages/register.page';
+import { YourFeedPage } from '../../src/pages/yourfeed.page';
 
  test('Пользователь может зарегистрироваться используя email и пароль ', async ({ page }) => {
     // act подготовка данных
