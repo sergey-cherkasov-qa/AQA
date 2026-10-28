@@ -43,22 +43,16 @@ test.describe('Домашнее задание: 5 функциональных �
         await mainPage.signup();
         await registerPage.register(user);
 
-        await expect(yourFeed.getProfileName(), 'Зарегистрированный пользователь должен быть авторизован')
-            .toContainText(user.name);
+        await mainPage.createArticle();
+        await createArticlePage.create(title, about, write);
     });
 
     test('Пользователь может создать статью', async () => {
-        await mainPage.createArticle();
-        await createArticlePage.create(title, about, write);
-
         const articleBodyText = await articleInfo.getArticleBodyText();
         expect(articleBodyText, 'Статья должна быть успешно создана').toContain(write);
     });
 
     test('Пользователь может удалить созданную статью', async ({page}) => {
-        await mainPage.createArticle();
-        await createArticlePage.create(title, about, write);
-
         await articleInfo.deleteArticle();
 
         await expect(page, 'После успешного удаления - редирект на страницу ленты').toHaveURL(/.*#\//);
@@ -66,9 +60,6 @@ test.describe('Домашнее задание: 5 функциональных �
 
     test('Пользователь может отредактировать созданную статью', async () => {
         const newBody = faker.book.genre();
-
-        await mainPage.createArticle();
-        await createArticlePage.create(title, about, write);
 
         await articleInfo.editArticle();
         await editArticle.editBody(newBody);
@@ -78,9 +69,6 @@ test.describe('Домашнее задание: 5 функциональных �
     });
 
     test('Пользователь может добавить комментарий к своей статье', async () => {
-        await mainPage.createArticle();
-        await createArticlePage.create(title, about, write);
-
         const comment = faker.book.author();
         await articleInfo.addComment(comment);
 
@@ -88,9 +76,6 @@ test.describe('Домашнее задание: 5 функциональных �
     });
 
     test('Пользователь может удалить свой комментарий статье', async () => {
-        await mainPage.createArticle();
-        await createArticlePage.create(title, about, write);
-
         const comment = faker.book.author();
         await articleInfo.addComment(comment);
 

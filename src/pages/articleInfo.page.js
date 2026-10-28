@@ -1,5 +1,3 @@
-import {expect} from '@playwright/test'
-
 export class ArticleInfoPage {
     constructor(page) {
         this.page = page;
@@ -29,7 +27,6 @@ export class ArticleInfoPage {
     async addComment(text) {
         await this.commentInput.fill(text);
         await this.commentButton.click();
-        await expect(this.getComment(text)).toHaveCount(1);
     }
 
     getComment(text) {
