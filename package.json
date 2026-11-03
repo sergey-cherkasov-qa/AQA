@@ -1,0 +1,37 @@
+{
+  "name": "aqa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playwright.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "code": "npx playwright codegen",
+    "allure": "npx allure awesome ./allure-results --single-file",
+    "report": "npx playwright show-report",
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergey-cherkasov-qa/AQA.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sergey-cherkasov-qa/AQA/issues"
+  },
+  "homepage": "https://github.com/sergey-cherkasov-qa/AQA#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.6.0",
+    "@playwright/test": "^1.64.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.6.5",
+    "allure": "^3.22.1",
+    "allure-playwright": "^3.14.0",
+    "eslint": "^10.13.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^17.13.0"
+  }
+}
