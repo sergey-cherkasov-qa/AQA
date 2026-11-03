@@ -1,7 +1,6 @@
 import {App, expect, test} from '../../src/helpers/fixtures/fixture.js';
 import {UserBuilder} from '../../src/helpers/index';
 
-
 test('Пользователь может зарегистрироваться используя email и пароль ', async ({app}) => {
     const user = new UserBuilder().withEmail().withPassword(12).withName().build();
 
