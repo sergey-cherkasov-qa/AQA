@@ -26,7 +26,7 @@ jobs:
     - name: Запустить тесты
       run: npm t
     - name: Алюр одним файлом
-      run: npx allure awesome ./allure-result --single
+      run: npx allure awesome ./allure-results --single
       continue-on-error: true
       if: always()
     - name: Артефакты
