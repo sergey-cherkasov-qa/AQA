@@ -23,5 +23,20 @@ jobs:
       run: npm ci
     - name: Установить браузеры
       run: npx playwright install --with-deps
-    - name: Запустить
+    - name: Запустить тесты
       run: npm t
+    - name: Алюр одним файлом
+      run: npx allure awesome ./allure-result --single
+      continue-on-error: true
+      if: always()
+    - name: Артефакты
+      uses: actions/upload-artifact@v7.0.2
+      continue-on-error: true
+      if: always()
+      with:
+        name: Артефакты сборки
+        path: |
+          allure-report/index.html
+          allure-results
+          playwright-report
+          
